@@ -1,0 +1,29 @@
+﻿@model Test.Models.BookContext
+@{
+    ViewData["Title"] = "Список авторов";
+}
+<h3>Список авторов</h3>
+<p>
+    <a href="~/Home/CreateAuthor">Добавить</a>
+</p>
+<table class="table-condensed">
+    <tr>
+        <td>Имя</td>
+        <td>Фамилия</td>
+        <td>Отчество(при наличии)</td>
+        <td>Колличество книг</td>
+        <td></td>
+        <td></td>
+    </tr>
+    @foreach (var author in Model.Authors)
+    {
+        <tr>
+            <td>@author.Name</td>
+            <td>@author.Surname</td>
+            <td>@author.Patronymic</td>
+            <td>@Model.Books.Where(a => a.Author.Id == author.Id).Count()</td>
+            <td><a href="~/Home/EditAuthor/@author.Id">Изменить</a></td>
+            <td><a href="~/Home/DeleteAuthor/@author.Id">Удалить</a></td>
+        </tr>
+    }
+</table>

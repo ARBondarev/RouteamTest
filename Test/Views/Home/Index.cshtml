@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Test.Models.User>
+@{
+    ViewData["Title"] = "Каталог книг";
+}
+<h3>Книги</h3>
+<table class="table-condensed">
+    <tr>
+        <td>ID</td>
+        <td>Email</td>
+        <td>Пароль</td>
+        <td>Id роли</td>
+        <td></td>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.Email</td>
+            <td>@user.Password</td>
+            <td>@user.RoleId</td>
+            <td><a href="~/Home/Buy/@user.Id">Купить</a></td>
+        </tr>
+    }
+</table>

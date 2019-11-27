@@ -1,0 +1,32 @@
+﻿@model Test.Models.CreateBookModel
+
+<h2>Добавить книгу</h2>
+
+<form asp-action="CreateBook" asp-controller="Home" asp-anti-forgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div>
+        <div>
+            <label asp-for="Name">Название</label><br />
+            <input type="text" asp-for="Name" />
+            <span asp-validation-for="Name" />
+        </div>
+        <div>
+            <label asp-for="AuthorId">ID автора</label><br />
+            <input asp-for="AuthorId" />
+            <span asp-validation-for="AuthorId" />
+        </div>
+        <div>
+            <label asp-for="PublishingHouse">Издательство</label><br />
+            <input asp-for="PublishingHouse" />
+            <span asp-validation-for="PublishingHouse" />
+        </div>
+        <div>
+            <label asp-for="YearOfPublishing">Год издания</label><br />
+            <input asp-for="YearOfPublishing" />
+            <span asp-validation-for="YearOfPublishing" />
+        </div>
+        <div>
+            <input type="submit" value="Добавить" />
+        </div>
+    </div>
+</form>
